@@ -1,0 +1,278 @@
+/* ================= PALETA DE COLORES ================= */
+:root {
+    --azul-estratosfera: #152238;
+    --blanco-estelar: #FFFFFF;
+    --dorado-institucional: #D4AF37;
+    --gris-titanio: #9CA3AF;
+    --fondo-claro: #F4F5F7;
+}
+
+/* ================= ESTILOS GLOBALES ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--blanco-estelar);
+    color: var(--azul-estratosfera);
+    padding-top: 80px; /* Aumentado ligeramente para el nuevo logo */
+}
+
+/* ================= NAVEGACIÓN Y LOGO ================= */
+nav {
+    background-color: var(--azul-estratosfera);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.logo {
+    color: var(--blanco-estelar);
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espacio entre la imagen y el texto */
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--dorado-institucional);
+}
+
+
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--blanco-estelar);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.nav-links a:hover {
+    color: var(--dorado-institucional);
+}
+
+.btn-unete {
+    background-color: var(--dorado-institucional);
+    color: var(--azul-estratosfera) !important;
+    padding: 0.5rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 700 !important;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.btn-unete:hover {
+    transform: scale(1.05);
+    background-color: #E5C354;
+}
+
+/* ================= ESTRUCTURAS COMPARTIDAS ================= */
+.section-title {
+    font-size: 2.5rem;
+    color: var(--azul-estratosfera);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.title-line {
+    width: 80px;
+    height: 4px;
+    background-color: var(--dorado-institucional);
+    margin: 0 auto 3rem auto;
+    border-radius: 2px;
+}
+
+footer {
+    background-color: #0b1320;
+    color: var(--gris-titanio);
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+}
+
+/* ================= PÁGINA: INICIO ================= */
+.hero {
+    position: relative;
+    height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    overflow: hidden; /* Evita que el difuminado se desborde de la pantalla */
+    z-index: 1;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px; /* Hacemos la imagen ligeramente más grande para que los bordes difuminados no se vean blancos */
+    
+    /* Capa oscura (opacidad) + tu imagen centrada y expandida horizontalmente */
+    background: linear-gradient(rgba(21, 34, 56, 0.85), rgba(21, 34, 56, 0.85)), url('fondo.jpg') center/cover no-repeat;
+    
+    /* Efecto difuminado */
+    filter: blur(8px);
+    
+    z-index: -1; /* Envía la imagen detrás del texto */
+}
+
+.hero h1 {
+    color: var(--blanco-estelar);
+    font-size: 4rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 1rem;
+    animation: fadeInDown 1s ease;
+}
+
+.hero p {
+    color: var(--gris-titanio);
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    animation: fadeInUp 1s ease 0.3s;
+    animation-fill-mode: both;
+}
+
+.identidad {
+    padding: 6rem 5%;
+    background-color: var(--fondo-claro);
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    background-color: var(--blanco-estelar);
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border-bottom: 4px solid transparent;
+    text-align: center;
+}
+
+.card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 15px 40px rgba(21, 34, 56, 0.15);
+    border-bottom: 4px solid var(--dorado-institucional);
+}
+
+.card i {
+    font-size: 3rem;
+    color: var(--dorado-institucional);
+    margin-bottom: 1.5rem;
+    transition: transform 0.4s ease;
+}
+
+.card:hover i {
+    transform: scale(1.1);
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* ================= PÁGINA: NOSOTROS ================= */
+.nosotros-hero {
+    background-color: var(--azul-estratosfera);
+    color: var(--blanco-estelar);
+    padding: 6rem 5%;
+    text-align: center;
+}
+
+.nosotros-hero .section-title {
+    color: var(--blanco-estelar);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 3rem;
+    max-width: 1000px;
+    margin: 4rem auto 0 auto;
+}
+
+.miembro {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 10px;
+    transition: background-color 0.3s, transform 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.miembro:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--dorado-institucional);
+    transform: translateY(-10px);
+}
+
+.foto-placeholder {
+    width: 120px;
+    height: 120px;
+    background-color: var(--gris-titanio);
+    border-radius: 50%;
+    margin: 0 auto 1.5rem auto;
+    border: 3px solid var(--dorado-institucional);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: var(--azul-estratosfera);
+}
+
+.miembro h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.rol {
+    color: var(--dorado-institucional);
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ================= ANIMACIONES ================= */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
